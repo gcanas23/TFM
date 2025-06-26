@@ -84,16 +84,6 @@ O projeto foi desenhado para ser minimalista, rápido e visualmente apelativo, c
 
 ---
 
-## ⚠️ Notas para o Agent
-
-- **Evitar confusões com nomes de ficheiros**: Os nomes dos logos e das equipas devem estar sincronizados (atenção a acentos, espaços, underscores).
-- **Datasets grandes**: Alguns ficheiros CSV podem ser muito grandes (>1GB); evite carregá-los todos na memória se não for necessário.
-- **Extensibilidade**: O projeto está preparado para adicionar novas páginas (ex: página de jogador), mas atualmente só navega até ao nível de equipa.
-- **Custom CSS**: O visual depende fortemente de CSS injetado via `st.markdown`; alterações no layout podem exigir ajustes no CSS.
-- **Ambiente local**: O projeto assume que todos os paths são locais e acessíveis; para deploy remoto, será necessário adaptar os paths e o acesso aos dados/imagens.
-
----
-
 ## 🚀 Como correr o projeto
 
 1. Garantir que todas as dependências estão instaladas.
