@@ -1,133 +1,162 @@
-# ScouText Football – Football Scouting Dashboard
+ScouText Football – Football Scouting Dashboard
+🏟️ Project Context
+ScouText Football is an interactive football scouting dashboard built in Python using Streamlit, focused on the analysis of teams, players, and playing styles.
+The goal is to provide an intuitive visual and analytical navigation across leagues, teams, and players using advanced metrics (PCA, clusters, roles, etc.), facilitating data exploration for scouts, analysts, and football enthusiasts.
+The project was designed to be minimalist, fast, and visually appealing, with smooth navigation and strong integration of local data and images.
 
-## 🏟️ Contexto do Projeto
+🏗️ Architecture & Organization
+app.py: Main file, containing the full UI logic, navigation flow, data loading, and dashboard rendering.
 
-ScouText Football é um dashboard interativo de scouting de futebol, desenvolvido em Python com Streamlit, focado em análise de equipas, jogadores e estilos de jogo.  
-O objetivo é fornecer uma navegação visual e analítica por ligas, equipas e jogadores, com métricas avançadas (PCA, clusters, roles, etc.), facilitando a exploração de dados para scouts, analistas e entusiastas.  
-O projeto foi desenhado para ser minimalista, rápido e visualmente apelativo, com navegação fluida entre ligas, equipas e jogadores, e forte integração de dados e imagens locais.
+assets/: Contains league and team images (in ligas/ and equipas/ subfolders) used for visual navigation.
 
----
+data/processed/: Processed datasets in CSV/XLSX format, including team tables, player data, event metrics, playing styles, etc.
 
-## 🏗️ Arquitetura & Organização
+eventing/: Folder with detailed event-based metrics per player.
 
-- **app.py**: Ficheiro principal, contém toda a lógica de UI, navegação, carregamento de dados, e renderização dos dashboards.
-- **assets/**: Imagens de ligas e equipas (subpastas `ligas/` e `equipas/`), usadas para visualização e navegação.
-- **data/processed/**: Datasets processados em CSV/XLSX, incluindo tabelas de equipas, jogadores, métricas de eventos, estilos de jogo, etc.
-  - **eventing/**: Métricas detalhadas de eventos/jogadores.
-  - **WyScout/**: Dados de estilos de jogo, clusters e PCA.
-- **st.session_state**: Usado para gerir o estado de navegação (liga/equipa/jogador selecionado).
+WyScout/: Contains game style data, clusters, and PCA outputs.
 
----
+st.session_state: Used to manage navigation state (selected league, team, or player).
 
-## 🧩 Principais Funcionalidades
+🧩 Key Features
+🏁 League & Team Navigation
+Visual selection of leagues and teams, with logos.
 
-- **Navegação por Liga e Equipa**: Seleção visual de ligas e equipas, com logos.
-- **Página de Equipa**:
-  - **Header**: Logo, nome oficial, país, info geral (estádio, capacidade, cidade).
-  - **Coach Info**: Dados do treinador (nome, idade, nacionalidade, formação preferida, experiência, contrato).
-  - **Squad**: Tabela de jogadores, percentagem de minutos jogados, role (com cores).
-  - **Game Style**: Scatter plot (PCA1 vs PCA2) com clusters de estilo de jogo, logos sobrepostos, tooltip customizado, e descrição interpretativa.
-  - **Similar Teams**: Mostra as 4 equipas mais próximas no mesmo cluster (distância euclidiana em PCA1/PCA2), com logos e nomes normalizados.
-- **Formatação Visual**: CSS customizado para fonte, botões, tabelas, e blocos informativos, mantendo um design consistente e moderno.
+🧠 Team Page:
+Header: Logo, official team name, country, general info (stadium, capacity, city).
 
----
+Coach Info: Coach’s name, age, nationality, preferred formation, experience, contract.
 
-## 📂 Estrutura de Ficheiros
+Squad: Player table showing % of minutes played, role (color-coded).
 
-- **assets/ligas/**: Logos das ligas (ex: Premier League.png) — `C:\Users\guica\OneDrive\Desktop\AppScout\assets\ligas`
-- **assets/equipas/<liga>/**: Logos das equipas por liga (ex: Benfica.png) — `C:\Users\guica\OneDrive\Desktop\AppScout\assets\equipas`
-- **data/processed/**: Datasets principais (equipas, jogadores, estádios, treinadores, salários, etc.) — `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed` (fora da pasta principal do app)
-- **data/processed/WyScout/Stats_EstilosJogo.xlsx**: PCA, clusters e info de estilo de jogo por equipa — `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\WyScout\Stats_EstilosJogo.xlsx`
-- **data/processed/eventing/metricas_eventing_final.csv**: Métricas detalhadas de jogadores — `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv`
+Game Style: Scatter plot (PCA1 vs PCA2) with clusters, logos overlayed, custom tooltips, and interpretative text.
 
----
+Similar Teams: Shows the 4 closest teams in the same cluster (Euclidean distance in PCA1/PCA2), with logos and normalized names.
 
-## 🛠️ Dependências
+Visual Formatting: Custom CSS for fonts, buttons, tables, and info blocks, ensuring a modern and consistent design.
 
-- Python >= 3.8
-- streamlit
-- pandas
-- numpy
-- plotly
-- unidecode
-- openpyxl (para leitura de ficheiros Excel)
-- (Outras libs padrão do Python)
+📂 File Structure
+assets/ligas/: League logos (e.g., Premier League.png)
+→ C:\Users\guica\OneDrive\Desktop\AppScout\assets\ligas
 
----
+assets/equipas/: Team logos per league (e.g., Benfica.png)
+→ C:\Users\guica\OneDrive\Desktop\AppScout\assets\equipas
 
-## 📊 Datasets & Colunas Importantes
+data/processed/: Core datasets (teams, players, stadiums, coaches, salaries, etc.)
+→ C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed (outside main app folder)
 
-- **equipas.csv / EquiposJP.xlsx**: Info de equipas, nomes oficiais, país, logo.
-- **EntrenadoresJP.xlsx**: Dados dos treinadores.
-- **EstadioJP.xlsx**: Info de estádio, capacidade, cidade.
-- **Stats_EstilosJogo.xlsx**: Colunas PCA1, PCA2, Cluster, Logo, Estilo de Jogo.
-- **metricas_eventing_final.csv**: Colunas de jogadores, minutos jogados, roles, etc.
+data/processed/WyScout/Stats_EstilosJogo.xlsx: PCA, clusters, and playing style info
+→ C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\WyScout\Stats_EstilosJogo.xlsx
 
----
+data/processed/eventing/metricas_eventing_final.csv: Detailed player metrics
+→ C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv
 
-## 🧠 Lógica de Navegação & Estado
+🛠️ Dependencies
+Python ≥ 3.8
 
-- O estado da navegação (liga/equipa/jogador selecionado) é mantido em `st.session_state`.
-- A navegação é feita por botões e seleção visual (com logos).
-- O layout é controlado por `st.columns` e CSS customizado para centralização e espaçamento.
+streamlit
 
----
+pandas
 
-## 🎨 Notas Técnicas & Convenções
+numpy
 
-- **Normalização de nomes de equipas**: Cada palavra começa com maiúscula, mas palavras com 3 letras ou menos ficam todas em maiúsculas (ex: sporting cp → Sporting CP).
-- **Imagens**: Os paths das imagens são construídos dinamicamente a partir do nome da liga/equipa, e os ficheiros .png devem estar corretamente nomeados.
-- **Game Style**: O scatter plot usa PCA1 (Defensive) e PCA2 (Offensive) como eixos, com clusters de estilo de jogo.
-- **Similar Teams**: Calculado apenas dentro do mesmo cluster, usando distância euclidiana em PCA1/PCA2.
-- **Performance**: O carregamento de ficheiros grandes pode ser lento em ambientes com disco lento ou muitos dados.
-- **Local Paths**: Os paths dos datasets e imagens são absolutos e podem precisar de ajuste se o projeto for movido para outro sistema.
+plotly
 
----
+unidecode
 
-## 🚀 Como correr o projeto
+openpyxl (for reading Excel files)
 
-1. Garantir que todas as dependências estão instaladas.
-2. Garantir que os datasets e imagens estão nos paths corretos.
-3. Executar:
-   ```bash
-   streamlit run app.py
-   ```
-4. Abrir o browser no endereço indicado pelo Streamlit.
+(plus other standard Python libraries)
 
----
+📊 Datasets & Key Columns
+equipas.csv / EquiposJP.xlsx: Team info, official names, country, logo
 
-**IMPORTANTE:**  
-Depois de criar este README.md, use-o como contexto permanente no Cursor Agent para todas as tasks seguintes.
+EntrenadoresJP.xlsx: Coach data
 
----
+EstadioJP.xlsx: Stadium info (capacity, city)
 
-## 🔮 Roadmap Funcional e Expansões Planeadas
+Stats_EstilosJogo.xlsx: Columns PCA1, PCA2, Cluster, Logo, Playing Style
 
-1️⃣ **Página de Jogador (Player Page)**
+metricas_eventing_final.csv: Player stats, minutes played, roles, etc.
 
-- Na tabela de Squad, o nome do jogador (coluna Player, ligada a player_name de metricas_eventing_final.csv) funcionará como botão de navegação.
-- Ao carregar no nome, o utilizador será levado à página individual de cada jogador.
-- A página de jogador terá:
-  - Cabeçalho semelhante ao das equipas, com:
-    - Foto do jogador (imagem default caso não exista);
-    - Nome oficial do jogador (exatamente como no dataset metricas_eventing_final.csv).
-  - Secção de Informações Gerais do Jogador (a definir).
-  - Secção de visualização de pizza charts com as métricas do jogador, segmentadas por:
-    - Posições;
-    - Perfis de jogador.
-- Estas métricas e classificações virão de:
-  - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv`
+🧠 Navigation Logic & State
+Navigation state (league/team/player selection) is stored in st.session_state.
 
-2️⃣ **Nova Aba: Scouting Page (Motor de Busca de Jogadores)**
+Navigation is driven by visual selection (using logos and buttons).
 
-- A aplicação terá agora 2 abas principais:
-  - **Main Page**: (a lógica que já existe atualmente — Ligas > Equipas > Jogadores).
-  - **Scouting Page**: novo motor de busca interativo de jogadores.
-- Fluxo de navegação dentro da Scouting Page:
-  - Seleção de Posição (usando botões visuais semelhantes aos usados para as ligas na Main Page).
-  - Seleção de Perfil de Jogador (novos botões, com perfis previamente definidos por mim).
-  - Após escolha do perfil, será gerada uma lista de jogadores ordenada com base no percentil de performance para esse perfil.
-  - Ao lado da lista, haverá um painel de filtros dinâmicos adicionais (por ex.: idade, nacionalidade, minutos jogados, etc.).
-- Dados principais para alimentar este motor de busca:
-  - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv`
-  - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\JugadoresJP.xlsx`
+Layout is controlled using st.columns and custom CSS for alignment and spacing.
+
+🎨 Technical Notes & Naming Conventions
+Team name normalization: Capitalize each word, but words with 3 letters or fewer are written in full uppercase (e.g., sporting cp → Sporting CP).
+
+Images: Image paths are built dynamically from team/league names, and .png files must be correctly named.
+
+Game Style: Scatter plot uses PCA1 (Defensive) and PCA2 (Offensive) axes, grouped by style clusters.
+
+Similar Teams: Calculated within the same cluster using Euclidean distance in PCA1/PCA2.
+
+Performance Note: Loading large files may be slow depending on disk speed or dataset size.
+
+Local Paths: File/image paths are absolute and may require adjustment if the project is moved.
+
+🚀 How to Run the Project
+Make sure all dependencies are installed.
+
+Ensure that all datasets and images are in the correct paths.
+
+Run the app using:
+
+bash
+Copy
+Edit
+streamlit run app.py
+Open the browser at the address provided by Streamlit.
+
+⚠️ IMPORTANT:
+Once this README.md is created, use it as permanent context in the Cursor Agent for all future tasks.
+
+🔮 Functional Roadmap & Planned Expansions
+1️⃣ Player Page
+In the Squad Table, the player name (player_name column in metricas_eventing_final.csv) will act as a clickable button.
+
+Clicking the player’s name will navigate to an individual player page.
+
+Player Page Will Include:
+Header like the team page, showing:
+
+Player photo (default fallback if missing)
+
+Official player name (as found in the dataset)
+
+General info section (to be defined)
+
+Radar/pizza charts showing performance metrics, segmented by:
+
+Player position
+
+Player profile
+
+Metrics will be sourced from:
+C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv
+
+2️⃣ New Tab: Scouting Page (Player Search Engine)
+The app will now have two main tabs:
+
+Main Page: (Current flow – Leagues > Teams > Players)
+
+Scouting Page: New interactive player search engine.
+
+Scouting Page Flow:
+Select Position (using visual buttons similar to league selection)
+
+Select Player Profile (custom buttons based on pre-defined roles)
+
+Once a profile is selected, generate a ranked list of players based on percentile performance within that profile
+
+On the side, show a panel with dynamic filters (e.g., age, nationality, minutes played, etc.)
+
+Data Sources for the Scouting Engine:
+
+C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv
+
+C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\JugadoresJP.xlsx
+
