@@ -141,8 +141,3 @@ Depois de criar este README.md, use-o como contexto permanente no Cursor Agent p
 - Dados principais para alimentar este motor de busca:
   - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv`
   - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\JugadoresJP.xlsx`
-
-👉 **Nota ao Agent:**
-
-Este roadmap deve ser adicionado ao README existente como complemento final, para que o projeto tenha uma descrição completa, tanto do que já está feito como do que ainda falta desenvolver.
-Este contexto vai também ajudar-te em futuras tarefas de desenvolvimento a não perderes o alinhamento técnico e funcional deste projeto. 
