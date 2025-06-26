@@ -84,16 +84,6 @@ O projeto foi desenhado para ser minimalista, rápido e visualmente apelativo, c
 
 ---
 
-## ⚠️ Notas para o Agent
-
-- **Evitar confusões com nomes de ficheiros**: Os nomes dos logos e das equipas devem estar sincronizados (atenção a acentos, espaços, underscores).
-- **Datasets grandes**: Alguns ficheiros CSV podem ser muito grandes (>1GB); evite carregá-los todos na memória se não for necessário.
-- **Extensibilidade**: O projeto está preparado para adicionar novas páginas (ex: página de jogador), mas atualmente só navega até ao nível de equipa.
-- **Custom CSS**: O visual depende fortemente de CSS injetado via `st.markdown`; alterações no layout podem exigir ajustes no CSS.
-- **Ambiente local**: O projeto assume que todos os paths são locais e acessíveis; para deploy remoto, será necessário adaptar os paths e o acesso aos dados/imagens.
-
----
-
 ## 🚀 Como correr o projeto
 
 1. Garantir que todas as dependências estão instaladas.
@@ -103,11 +93,6 @@ O projeto foi desenhado para ser minimalista, rápido e visualmente apelativo, c
    streamlit run app.py
    ```
 4. Abrir o browser no endereço indicado pelo Streamlit.
-
----
-
-**IMPORTANTE:**  
-Depois de criar este README.md, use-o como contexto permanente no Cursor Agent para todas as tasks seguintes.
 
 ---
 
@@ -141,8 +126,3 @@ Depois de criar este README.md, use-o como contexto permanente no Cursor Agent p
 - Dados principais para alimentar este motor de busca:
   - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\eventing\metricas_eventing_final.csv`
   - `C:\Users\guica\OneDrive\Desktop\ScoutingDash\data\processed\JugadoresJP.xlsx`
-
-👉 **Nota ao Agent:**
-
-Este roadmap deve ser adicionado ao README existente como complemento final, para que o projeto tenha uma descrição completa, tanto do que já está feito como do que ainda falta desenvolver.
-Este contexto vai também ajudar-te em futuras tarefas de desenvolvimento a não perderes o alinhamento técnico e funcional deste projeto. 
